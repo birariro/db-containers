@@ -1,0 +1,10 @@
+dbcontainers:
+  enable: true
+
+application:
+  test: true
+
+logging:
+  level:
+    com:
+      birariro: TRACE
