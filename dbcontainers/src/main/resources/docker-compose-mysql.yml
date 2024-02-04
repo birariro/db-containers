@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
   mariadb:
-    container_name: dbcontainers_mariadb
+    container_name: dbcontainers
     image: ${DB_CONTAINERS_DATABASE_IMAGE}:${DB_CONTAINERS_DATABASE_IMAGE_VERSION}
     ports:
       - ${DB_CONTAINERS_DATABASE_PORT}:3306

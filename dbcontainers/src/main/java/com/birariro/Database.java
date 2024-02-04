@@ -1,23 +1,24 @@
 package com.birariro;
 
 public enum Database {
-  MARIADB("mariadb","10.8.3"),
-  MYSQL("mysql","8.3.0")
+  MARIADB("mariadb","mysql.yml"),
+  MYSQL("mysql","mysql.yml"),
+  POSTGRES("postgres","postgres.yml")
   ;
 
   String image;
-  String version;
+  String compose;
 
-  Database(String image, String version) {
+  Database(String image,String compose) {
     this.image = image;
-    this.version = version;
+    this.compose = compose;
   }
 
   public String getImage() {
     return image;
   }
 
-  public String getVersion() {
-    return version;
+  public String getComposeFileName() {
+    return "docker-compose-" + compose;
   }
 }
