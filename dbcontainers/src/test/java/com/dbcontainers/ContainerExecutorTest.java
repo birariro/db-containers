@@ -1,4 +1,4 @@
-package com.birariro;
+package com.dbcontainers;
 
 
 import org.junit.jupiter.api.Assertions;

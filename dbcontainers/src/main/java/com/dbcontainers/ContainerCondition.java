@@ -1,4 +1,4 @@
-package com.birariro;
+package com.dbcontainers;
 
 public class ContainerCondition {
   private final Database database;

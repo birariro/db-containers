@@ -1,4 +1,4 @@
-package com.birariro.sample;
+package com.dbcontainers.sample;
 
 
 import org.junit.jupiter.api.Test;

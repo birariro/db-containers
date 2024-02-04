@@ -1,4 +1,4 @@
-package com.birariro;
+package com.dbcontainers;
 
 public enum Database {
   MARIADB("mariadb","mysql.yml"),

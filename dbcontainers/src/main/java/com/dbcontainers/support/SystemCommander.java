@@ -1,4 +1,4 @@
-package com.birariro.support;
+package com.dbcontainers.support;
 
 import java.io.BufferedReader;
 import java.io.IOException;

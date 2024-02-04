@@ -1,9 +1,6 @@
-package com.birariro.sample;
-
-import java.util.Arrays;
+package com.dbcontainers.sample;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 

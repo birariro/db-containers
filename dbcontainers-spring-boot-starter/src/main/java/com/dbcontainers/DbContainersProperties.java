@@ -1,4 +1,4 @@
-package com.birariro;
+package com.dbcontainers;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

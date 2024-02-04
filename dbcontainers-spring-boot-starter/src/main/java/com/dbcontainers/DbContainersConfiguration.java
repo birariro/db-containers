@@ -1,4 +1,4 @@
-package com.birariro;
+package com.dbcontainers;
 
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

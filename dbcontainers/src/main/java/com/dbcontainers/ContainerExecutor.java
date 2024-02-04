@@ -1,23 +1,25 @@
-package com.birariro;
+package com.dbcontainers;
 
 
+import java.net.URL;
 import java.util.logging.Logger;
 
-import com.birariro.constant.Constant;
-import com.birariro.constant.Constant.Path;
-import com.birariro.support.SystemCommander;
-import com.birariro.support.ConditionPrinter;
-import com.birariro.support.Environmenter;
+import com.dbcontainers.constant.Constant;
+import com.dbcontainers.support.SystemCommander;
+import com.dbcontainers.support.ConditionPrinter;
+import com.dbcontainers.support.Environmenter;
 
 public class ContainerExecutor {
 
   private final Logger logger = Logger.getLogger(ContainerExecutor.class.getName());
   private final ContainerCondition condition;
   private final String composePath;
+  private final String env;
 
   public ContainerExecutor(ContainerCondition condition) {
     this.condition = condition;
-    this.composePath = Path.RESOURCES + condition.getDatabase().getComposeFileName();
+    this.env = this.getClass().getResource("/env").getPath();
+    this.composePath = this.getClass().getResource("/"+condition.getDatabase().getComposeFileName()).getPath();
     Environmenter.init(condition);
   }
 
@@ -27,11 +29,10 @@ public class ContainerExecutor {
 
   public void run() {
 
-    String envPath = Constant.Path.ENV;
-    String command =  Constant.Command.getRunCommand(composePath);
+    String command =  Constant.Command.getRunCommand(env, composePath);
 
     logger.info("command call: "+ command);
-    ConditionPrinter.envPrint(envPath);
+    ConditionPrinter.envPrint(env);
 
     SystemCommander.execute(command);
   }

@@ -1,19 +1,19 @@
-package com.birariro.support;
+package com.dbcontainers.support;
 
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import com.birariro.ContainerCondition;
-import com.birariro.constant.Constant.Path;
+import com.dbcontainers.ContainerCondition;
 
 public class Environmenter {
     private final Logger logger = Logger.getLogger(Environmenter.class.getName());
-    private final String filePath = Path.ENV;
+    private final String filePath;
     private Map<String, String> envMap;
 
     public Environmenter() {
+        filePath = this.getClass().getResource("/env").getPath();
         envMap = new HashMap<>();
         loadEnvFile();
     }
@@ -55,11 +55,14 @@ public class Environmenter {
     }
 
     private void loadEnvFile() {
+
+        logger.info("loadEnvFile load : "+ filePath);
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split("=", 2);
                 if (parts.length == 2) {
+                    logger.info("loadEnvFile element : "+parts[0]);
                     envMap.put(parts[0], parts[1]);
                 }
             }

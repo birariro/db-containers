@@ -18,7 +18,7 @@ ext {
 }
 
 dependencies {
-    implementation files('../../dbcontainers/build/libs/dbcontainers-1.0.0.jar')
+    implementation files('../dbcontainers/build/libs/dbcontainers-1.0.0.jar')
     implementation "org.springframework.boot:spring-boot-starter:$springBootVersion"
     implementation("org.springframework.boot:spring-boot-autoconfigure:3.0.2")
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
