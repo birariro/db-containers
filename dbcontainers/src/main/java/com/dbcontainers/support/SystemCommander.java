@@ -38,6 +38,10 @@ public class SystemCommander {
             logger.warning(line);
             throw new RuntimeException("check running docker daemon");
         }
+        if(line.contains("You have to remove (or rename) that container to be able to reuse that name.")){
+            logger.warning(line);
+            throw new RuntimeException("duplicate container name");
+        }
         logger.info(line);
     }
 }

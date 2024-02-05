@@ -42,4 +42,15 @@ public class ContainerCondition {
   public Integer getPort() {
     return port;
   }
+
+  @Override
+  public String toString() {
+    return
+        "Container Condition info \n"+
+            "> database type : " + database + "\n" +
+            "> database version : " + version + "\n" +
+            "> database name : " + name + "\n" +
+            "> database password : " + password + "\n" +
+            "> database port : " + port + "\n" ;
+  }
 }
