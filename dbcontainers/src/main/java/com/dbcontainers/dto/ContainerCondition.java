@@ -1,4 +1,6 @@
-package com.dbcontainers;
+package com.dbcontainers.dto;
+
+import com.dbcontainers.Database;
 
 public class ContainerCondition {
   private final Database database;

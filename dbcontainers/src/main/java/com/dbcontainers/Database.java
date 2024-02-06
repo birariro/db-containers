@@ -4,5 +4,4 @@ public enum Database {
   MARIADB,
   MYSQL,
   POSTGRES
-
 }

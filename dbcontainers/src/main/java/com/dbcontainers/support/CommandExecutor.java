@@ -1,15 +1,20 @@
 package com.dbcontainers.support;
 
+import com.dbcontainers.dto.Command;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.logging.Logger;
 
-public class SystemCommander {
-    private static final Logger logger = Logger.getLogger(SystemCommander.class.getName());
-    public static void execute(String command){
+public class CommandExecutor {
+    private static final Logger logger = Logger.getLogger(CommandExecutor.class.getName());
+    public static void execute(Command command){
+
+        String _command = command.value();
         try {
-            String[] commands = command.split(" ");
+
+            String[] commands = _command.split(" ");
             ProcessBuilder processBuilder = new ProcessBuilder(commands);
             processBuilder.redirectErrorStream(true);
             Process process = processBuilder.start();
@@ -22,10 +27,15 @@ public class SystemCommander {
             }
 
             int exitCode = process.waitFor();
-            logger.info("command execute success. Exit Code: " + exitCode);
 
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
+            if(exitCode != 0){
+                throw new RuntimeException("command execute fail exit code : "+exitCode);
+            }
+
+            logger.info("command execute success.");
+
+        } catch (IOException | InterruptedException o_O) {
+            logger.severe(o_O.getMessage());
             throw new RuntimeException();
         }
     }

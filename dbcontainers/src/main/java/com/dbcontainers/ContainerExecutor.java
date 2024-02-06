@@ -3,8 +3,10 @@ package com.dbcontainers;
 
 import java.util.logging.Logger;
 
+import com.dbcontainers.dto.Command;
+import com.dbcontainers.dto.ContainerCondition;
 import com.dbcontainers.support.CommandGenerator;
-import com.dbcontainers.support.SystemCommander;
+import com.dbcontainers.support.CommandExecutor;
 
 public class ContainerExecutor {
 
@@ -21,12 +23,8 @@ public class ContainerExecutor {
 
   public void run() {
 
-    logger.info(condition.toString());
-
-    String command =  new CommandGenerator().getRunCommand(condition);
-    logger.info("command : "+ command);
-
-    SystemCommander.execute(command);
+    Command command = new CommandGenerator().createRunCommand(condition);
+    CommandExecutor.execute(command);
   }
 
   public ContainerCondition getCondition() {
